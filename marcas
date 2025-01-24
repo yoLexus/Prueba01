@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Marcas de Coches</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .brand-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-list">
+        <h1>Marcas de Coches</h1>
+        <ul id="brands">
+            <!-- Las marcas serán cargadas aquí -->
+        </ul>
+    </div>
+
+    <script>
+        // Definir las marcas de coches de manera estática
+        const brands = [
+            { nombre: "Acura" },
+            { nombre: "Alfa Romeo" },
+            { nombre: "Honda" },
+            { nombre: "Lexus" },
+            { nombre: "Nissan" },
+            { nombre: "Toyota" },
+        ];
+
+        const brandsList = document.getElementById('brands');
+
+        // Limpiar la lista
+        brandsList.innerHTML = '';
+
+        // Iterar sobre las marcas y agregarlas a la lista como enlaces
+        brands.forEach(brand => {
+            const listItem = document.createElement('li');
+            
+            // Crear un enlace para cada marca
+            const brandLink = document.createElement('a');
+            brandLink.href = `info-marca.html?marca=${encodeURIComponent(brand.nombre)}`; // Construir la URL con el parámetro de marca
+            brandLink.textContent = brand.nombre; // Mostrar la marca como texto del enlace
+
+            listItem.appendChild(brandLink); // Agregar el enlace al elemento de lista
+            brandsList.appendChild(listItem); // Agregar el elemento de lista al ul
+        });
+    </script>
+</body>
+</html>
