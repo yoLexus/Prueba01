@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Modelo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="car-info">
+        <h1 id="car-title">
+            <a id="brand-link" href="" style="text-decoration: none; color: inherit;">Detalles del Modelo</a>
+        </h1>
+        <div id="car-image">
+            <!-- La imagen del coche se cargará aquí -->
+        </div>
+    </div>
+
+    <script>
+        // Obtener el parámetro 'modelo' y 'marca' de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const modelo = urlParams.get('modelo');
+        const marca = urlParams.get('marca');
+
+        // Comprobar si los parámetros están disponibles
+        if (!modelo || !marca) {
+            document.getElementById('car-image').innerHTML = '<p>Error: Parámetros de modelo o marca no proporcionados.</p>';
+            console.error('Error: Parámetros de modelo o marca no proporcionados.');
+            throw new Error('Parámetros de modelo o marca no proporcionados.');
+        }
+
+        // Actualizar el título y encabezado con la marca y el modelo
+        document.title = `${marca} ${modelo} - Detalles del Modelo`;
+        document.getElementById('car-title').innerHTML = `
+            <a id="brand-link" href="info-marca.html?marca=${encodeURIComponent(marca)}" style="text-decoration: none; color: inherit;">
+                ${marca} ${modelo}
+            </a>
+        `;
+
+        // Cargar la imagen del coche
+        const carImage = document.getElementById('car-image');
+        const imageUrl = `./Imagenes/${encodeURIComponent(marca)}/${encodeURIComponent(modelo)}.png`; // O .png, según el formato de tu imagen
+        const imgElement = document.createElement('img');
+        imgElement.src = imageUrl;
+        imgElement.alt = `Imagen del modelo ${modelo} de la marca ${marca}`;
+        imgElement.style.maxWidth = '100%'; // Ajusta el tamaño según sea necesario
+        imgElement.style.height = 'auto';
+
+        carImage.appendChild(imgElement);
+    </script>
+</body>
+</html>
