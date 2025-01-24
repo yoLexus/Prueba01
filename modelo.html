@@ -17,6 +17,22 @@
     </div>
 
     <script>
+        // Relación entre los modelos y las URLs de las imágenes en Google Drive
+        const carImages = {
+            "Acura": {
+                "NSX (NA1)": "https://drive.google.com/file/d/1kyY9SKxMmtdZ-wcpeIaZbnhDMWcGMjO9/view?usp=drive_link1",
+                "NSX-T (NA2)": "https://drive.google.com/file/d/1esEz3TUWCzQPKE_8UmJGgYLYQsl9rs3X/view?usp=drive_link"
+            },
+            "Alfa Romeo": {
+                "4C": "https://drive.google.com/uc?export=view&id=TU_ID_DE_GOOGLE_DRIVE_DE_LA_IMAGEN_ALFA_4C",
+                "Giulia Quadrifoglio": "https://drive.google.com/uc?export=view&id=TU_ID_DE_GOOGLE_DRIVE_DE_LA_IMAGEN_ALFA_GIULIA"
+            },
+            "Honda": {
+                "NSX (NC1)": "https://drive.google.com/uc?export=view&id=TU_ID_DE_GOOGLE_DRIVE_DE_LA_IMAGEN_HONDA_NSX_NC1",
+                "Civic Type R (FL5)": "https://drive.google.com/uc?export=view&id=TU_ID_DE_GOOGLE_DRIVE_DE_LA_IMAGEN_HONDA_CIVIC"
+            }
+        };
+
         // Obtener el parámetro 'modelo' y 'marca' de la URL
         const urlParams = new URLSearchParams(window.location.search);
         const modelo = urlParams.get('modelo');
@@ -37,16 +53,20 @@
             </a>
         `;
 
-        // Cargar la imagen del coche
+        // Comprobar si existe la imagen para este modelo
         const carImage = document.getElementById('car-image');
-        const imageUrl = `./Imagenes/${encodeURIComponent(marca)}/${encodeURIComponent(modelo)}.png`; // O .png, según el formato de tu imagen
-        const imgElement = document.createElement('img');
-        imgElement.src = imageUrl;
-        imgElement.alt = `Imagen del modelo ${modelo} de la marca ${marca}`;
-        imgElement.style.maxWidth = '100%'; // Ajusta el tamaño según sea necesario
-        imgElement.style.height = 'auto';
-
-        carImage.appendChild(imgElement);
+        if (carImages[marca] && carImages[marca][modelo]) {
+            const imageUrl = carImages[marca][modelo]; // Obtener la URL de la imagen de Google Drive
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.alt = `Imagen del modelo ${modelo} de la marca ${marca}`;
+            imgElement.style.maxWidth = '100%'; // Ajustar tamaño de la imagen
+            imgElement.style.height = 'auto';
+            carImage.appendChild(imgElement);
+        } else {
+            // Si no se encuentra la imagen, mostrar un mensaje de error
+            carImage.innerHTML = '<p>Imagen no disponible para este modelo.</p>';
+        }
     </script>
 </body>
 </html>
