@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marca: </title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .brand-info {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .back-link {
+            font-size: 18px;
+            color: #007BFF;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-info">
+        <!-- Enlace para volver a la página de marcas -->
+        <a href="marcas.html" class="back-link">&larr; Volver a la lista de marcas</a>
+
+        <h1 id="brand-name">Marca: </h1> <!-- Aquí se mostrará el nombre de la marca -->
+        <div id="brand-details">
+            <!-- Los detalles de la marca serán cargados aquí -->
+        </div>
+
+        <h2>Modelos de la Marca</h2>
+        <table id="models-table">
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los modelos de la marca serán cargados aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Definir las marcas y modelos de manera estática
+        const brandData = {
+            "Acura": {
+                modelos: ["NSX (NA1)", "NSX-T (NA2) 'Pre-facelit'"]
+            },
+            "Alfa Romeo": {
+                modelos: ["4C", "4C Competizione", "4C Spider", "8C Competizione", "8C Spider", "Giulia Quadrifoglio",
+                    "Giulia Quadrifoglio Racing Edition", "Giulia Quadrifoglio 'facelift'","Giulia Quadrifoglio 'facelift' 100° Anniversario",
+                    "Giulia GTAm", "Stelvio Quadrifoglio", "Stelvio Quadrifoglio Racing Edition", "Stelvio Quadrifoglio 'facelift'"]
+            },
+            "Honda": {
+                modelos: ["NSX (NC1)", "Civic Type R (FL5)"]
+            },
+            "Lexus": {
+                modelos: ["LFA", "IS F", "IS F 'facelift'", "GS F", "RC F", "RC F 10th Anniversary", "RC F 'facelift'", 
+                "RC F 'facelift' Track Edition", "LC500h", "LC500h Structural Blue Edition", "LC500", "LC500 Limited Edition",
+                "LC500 Ultimate Edition", "LC500 Cabrio", "LC500 Cabrio Regatta Edition", "LC500 Cabrio Hokkaido Edition", 
+                "LC500 Cabrio Ultimate Edition"]
+            },
+            "Toyota": {
+                modelos: ["GT86 (ZN6)", "GT86 (ZN6) 'facelift'", "GT86 (ZN6) 'facelift' Solar Orange Limited Edition",
+                "GT86 (ZN6) 'facelift' Club Series Blue Edition", "86 (ZN6) 'facelift'", "GR86 (ZN8)", 
+                "GR Supra SZ-R (DB21)", "GR Supra SZ-R (DB21) 'Fuji Edition'", "GR Supra SZ-R (DB25)",
+                "GR Supra RZ (DB41)", "GR Supra RZ (DB41) 'A90 Edition'", "GR Supra RZ (DB41) 'Jarama Racetrack Edition'",
+                "GR Supra RZ (DB45)", "GR Supra RZ (DB45) 'GT4 100th Edition Tribute'"]
+            }
+        };
+
+        // Función para obtener el valor de un parámetro de la URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        // Obtener el parámetro de la marca de la URL
+        const marca = getQueryParam('marca');
+    
+        if (marca && brandData[marca]) {
+            const brandDetails = document.getElementById('brand-details');
+            const data = brandData[marca];
+
+            // Cargar el nombre de la marca en el título
+            const brandNameElement = document.getElementById('brand-name');
+            brandNameElement.textContent = `Marca: ${marca}`;
+
+            // No mostrar el país de origen ni otros detalles
+            brandDetails.innerHTML = ``;
+
+            // Cargar modelos de la marca en la tabla
+            const modelsTableBody = document.querySelector('#models-table tbody');
+            modelsTableBody.innerHTML = ''; // Limpiar la tabla
+
+            data.modelos.forEach(modelo => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><a href="modelo.html?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}">${modelo}</a></td>
+                `;
+                modelsTableBody.appendChild(row);
+            });
+        } else {
+            // Si no hay marca o no se encuentra en el objeto 'brandData', mostrar un error
+            const brandDetails = document.getElementById('brand-details');
+            brandDetails.innerHTML = '<p>Error: Marca no encontrada o parámetro de marca no proporcionado.</p>';
+            console.error('Error: Marca no encontrada o parámetro de marca no proporcionado.');
+        }
+    </script>
+</body>
+</html>
