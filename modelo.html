@@ -20,8 +20,8 @@
         // Relación entre los modelos y las URLs de las imágenes en Google Drive
         const carImages = {
             "Acura": {
-                "NSX (NA1)": "https://drive.google.com/thumbnail?view&id=1kyY9SKxMmtdZ-wcpeIaZbnhDMWcGMjO9&sz=w1000",
-                "NSX-T (NA2) 'Pre-facelit'": "https://drive.google.com/thumbnail?view&id=1esEz3TUWCzQPKE_8UmJGgYLYQsl9rs3X&sz=w1000"
+                "NSX (NA1)": "https://drive.google.com/thumbnail?view&id=1kyY9SKxMmtdZ-wcpeIaZbnhDMWcGMjO9&sz=w1500",
+                "NSX-T (NA2) 'Pre-facelit'": "https://drive.google.com/thumbnail?view&id=1esEz3TUWCzQPKE_8UmJGgYLYQsl9rs3X&sz=w1200"
             },
             "Alfa Romeo": {
                 "4C": "https://drive.google.com/thumbnail?view&id=1cWbC01VZo2Y1vT2746kGjcUUWcqtdaFn&sz=w1000",
@@ -40,8 +40,8 @@
             },
 
             "Honda": {
-                "NSX (NC1)": "https://drive.google.com/uc?export=view&id=TU_ID_DE_GOOGLE_DRIVE_DE_LA_IMAGEN_HONDA_NSX_NC1",
-                "Civic Type R (FL5)": "https://drive.google.com/uc?export=view&id=TU_ID_DE_GOOGLE_DRIVE_DE_LA_IMAGEN_HONDA_CIVIC"
+                "NSX (NC1)": "https://drive.google.com/thumbnail?view&id=1pGWsNsam6hXI_OAlmu6yYD9UBU0oN1tF&sz=w1000",
+                "Civic Type R (FL5)": "https://drive.google.com/thumbnail?view&id=1IW3MxGNjfdm7NR4Tf-1YPU0Q0j-NHA9V&sz=w1000"
             },
             "Lexus": {
                 "LFA": "https://drive.google.com/thumbnail?view&id=1IObHDs6x7dRctyMObKSZHLy7khETE4lO&sz=w1000",
@@ -62,7 +62,42 @@
                 "LC500 Cabrio Hokkaido Edition": "https://drive.google.com/thumbnail?view&id=1aQswsApCWxtGmNnCNUvrvBnH5syCBdK2&sz=w1000",
                 "LC500 Cabrio Ultimate Edition": "https://drive.google.com/thumbnail?view&id=1YwtMgaLZyvHsT70y5r1j_OtYRb-bBTMk&sz=w1000"
             },
-            
+            "Nissan": {
+                "350Z (Z33) 'facelift HR'": "https://drive.google.com/thumbnail?view&id=1eY_lGaVqkgQHx5E8-cAswZW3MJoDH0zf&sz=w1000",
+                "Fairlady Z (Z33) 'facelift HR'": "https://drive.google.com/thumbnail?view&id=1MxIbNrWGMhtmKafBm1UWgbMw8TuOsplK&sz=w1000",
+                "370z": "https://drive.google.com/thumbnail?view&id=1qXBfhJDt2NeC3Fz5LCtqH9kOT0K8LNE_&sz=w1000",
+                "370Z 40th Anniversary": "https://drive.google.com/thumbnail?view&id=1taxYi1gqhkJ5iQoMrcOmuaY_h7RRgvO3&sz=w1000",
+                "370Z Nismo": "https://drive.google.com/thumbnail?view&id=1TLbYXzEtdagdZScSWZHdwVk6guON_Pc9&sz=w1000",
+                "370Z 'facelift I'": "https://drive.google.com/thumbnail?view&id=1V5HJWb_c2DRyzkeFZB2GYNbFUOWA7dQR&sz=w1000",
+                "370Z 'facelift' Nismo": "https://drive.google.com/thumbnail?view&id=1V_MQ_R8c4-h8OuzbgBwMWZ6GTg0qKr0I&sz=w1000",
+                "370Z 'facelift II'": "https://drive.google.com/thumbnail?view&id=1AcihpSomnKIO3wEc1OTGCGhEIpeX9zaf&sz=w1000",
+                "370Z 'facelift II' 50th Anniversary": "https://drive.google.com/thumbnail?view&id=1wY5X29SGYDxzJETmAoDGD4vjmkT9yZXL&sz=w1000",
+                "Skyline GT-R (R32) 'Series 1'": "https://drive.google.com/thumbnail?view&id=1CQzpjQCGNJms8RZc9kH0Bgt1swIH7hHO&sz=w1000",
+                "Skyline GT-R (R32) 'Series 2'": "https://drive.google.com/thumbnail?view&id=1l2w12VrSAEBlTYBp9Gq1RP9MWTjlellK&sz=w1000",
+                "Skyline GT-R (R32) 'Series 3'": "https://drive.google.com/thumbnail?view&id=15G8ruwBAmS8o8i4Xiw2kyuMwR1ao3PKu&sz=w1000",
+                "Skyline GT-R (R32) V-Spec II": "https://drive.google.com/thumbnail?view&id=1AnT4yo81PayvQOrWkA4sTn2KeFcGNRlk&sz=w1000",
+                "Skyline GT-R (R33) 'Series 1'": "https://drive.google.com/thumbnail?view&id=1U-X-yFiA_Ju2mtDmwAPXIulpcXdC3rgb&sz=w1000",
+                "Skyline GT-R (R33) 'Series 1' V-Spec": "https://drive.google.com/thumbnail?view&id=1voQCzgp4Z3s5J3fGlfEtDrc_H908v5JB&sz=w1000",
+                "Skyline GT-R (R33) 'Series 2'": "https://drive.google.com/thumbnail?view&id=1SwaizF4x8WEbPiF4E05WuPUh8RpHJ8II&sz=w1000",
+                "Skyline GT-R (R33) 'Series 3' V-Spec": "https://drive.google.com/thumbnail?view&id=1_mOr6CRsIMY5YsvA4xX38xDZc9X1dqig&sz=w1000",
+                "Skyline GT-R (R34) 'Series 1 Pre-Production' V-Spec": "https://drive.google.com/thumbnail?view&id=1JUcKFF4d1dk8XCpvhWoLMdaAd7GzveTs&sz=w1000",
+                "Skyline GT-R (R34) 'Series 1'": "https://drive.google.com/thumbnail?view&id=1B4CZx3lvA_ZOrOn4AW3JO44hVbmTmT12&sz=w1000",
+                "Skyline GT-R (R34) 'Series 1' V-Spec": "https://drive.google.com/thumbnail?view&id=1haypKd__Re0U9f8yDEBn459r-zanwPgr&sz=w1000",
+                "Skyline GT-R (R34) 'Series 2'": "https://drive.google.com/thumbnail?view&id=109atGIbCzBHfDivAJ2JdoHSEfwNSDJtb&sz=w1000",
+                "GT-R (R35)": "https://drive.google.com/thumbnail?view&id=19PcIDhHcf1ztNTIM1s-_hJrbZ_m75hpt&sz=w1000",
+                "GT-R (R35) Spec-V": "https://drive.google.com/thumbnail?view&id=1rE5HPe5NNx5IwyIuD5aIB2AtQR_AvcnY&sz=w1000",
+                "GT-R (R35) 'facelift I'": "https://drive.google.com/thumbnail?view&id=1ED7Hf6ERV4Qfgt069ePzWpJiBBqdf2Iw&sz=w1000",
+                "GT-R (R35) 'facelift I' Track Pack": "https://drive.google.com/thumbnail?view&id=1fheXtvm2JipQK5oywqvRX10jdnS13eQ3&sz=w1000",
+                "GT-R (R35) 'facelift I' Track Edition": "https://drive.google.com/thumbnail?view&id=190XkFEbpGlkITNyy3EWdRTAeST7jI7HL&sz=w1000",
+                "GT-R (R35) 'facelift I' Nismo": "https://drive.google.com/thumbnail?view&id=16NHYW8_d3_uGLHokVJBuzw2TfPq0JtJ1&sz=w1000",
+                "GT-R (R35) 'facelift II'": "https://drive.google.com/thumbnail?view&id=18OMGqjlshy83iMg5oyGD_nflTdXdXOhq&sz=w1000",
+                "GT-R (R35) 'facelift II' Track Edition": "https://drive.google.com/thumbnail?view&id=1bKCketvhnBc_ej1cQWKUCN0W_cUGyAwm&sz=w1000",
+                "GT-R (R35) 'facelift II' Nismo": "https://drive.google.com/thumbnail?view&id=1sDYFXpJhK686Oj5OghRUMCQtdstPrdvP&sz=w1000",
+                "Silvia (S15) Spec-S Aero": "https://drive.google.com/thumbnail?view&id=1I6-jiUP8B_h671qbreupfNB_V3yxQccN&sz=w1000",
+                "Silvia (S15) Spec-S G Package": "https://drive.google.com/thumbnail?view&id=1wq9Temu52UNJfQo1utBuAY1493b3lukt&sz=w1000",
+                "Silvia (S15) Spec-R": "https://drive.google.com/thumbnail?view&id=1xil0h0P7McjL3gsUglAokf5ZkqNEmFn4&sz=w1000",
+                "Silvia (S15) Spec-R Aero": "https://drive.google.com/thumbnail?view&id=195eyuJbs7rqB-XwMRFuXaaEijI7NxCiR&sz=w1000"
+            },
             "Toyota": {
                 "GR Supra SZ-R (DB21)": "https://drive.google.com/thumbnail?view&id=1Vw_ky7lnMhdhXzraNYI4bVdGnmbRiFxN&sz=w1000",
                 "GR Supra SZ-R (DB21) 'Fuji Edition'": "https://drive.google.com/thumbnail?view&id=1XzbJ9N06L-VYQ4YAVgdYOdhTUct5saTe&sz=w1000",
